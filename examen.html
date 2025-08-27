@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Unidad Educativa Don Bosco</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<header>
+    <div class="header-contenido">
+        <h1>UNIDAD EDUCATIVA DON BOSCO 6TO B</h1>
+        <img src="img/logo.png" alt="logo" class="logo-header">
+    </div>
+    <nav>
+        <div class="nav-tabs">
+            <a href="#" onclick="mostrarSeccion('inicio', this, event)">Inicio</a>
+         
+            <a href="#" onclick="mostrarSeccion('servicios', this, event)">Servicios</a>
+            <a href="#" onclick="mostrarSeccion('contacto', this, event)">Contacto</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Sección Inicio -->
+    <section id="inicio" class="seccion activa">
+        <h2>Bienvenida</h2>
+        <h4>Actividades de la "PROMO DEL BICENTENARIO"</h4>
+        <p>Aqui te enteraras de las ultimas actividades como promo :)
+        obs: Apreta las imagenes para ampliarlas:)</p>
+           <div class="cards-container">
+              <div class="card">
+            <div class="card-img-container">
+                <img src="img/somos6tob.jpeg" alt="Horarios" onclick="abrirModal('img/somos6tob.jpeg')">
+            </div>
+            <h3>SOMOS 6TO B<h3></h3>
+            <p>SOMOS EL CURSO 6TOB y sus alumnos :D</p>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/actividad1.jpeg" alt="Horarios" onclick="abrirModal('img/actividad1.jpeg')">
+            </div>
+            <h3>Convivencia en "LOS PINOS <h3></h3>
+            <p>Actividad conformada por los alumnos del curso 6to B, Asesores de curso y licenciado del colegio DB "C"</p>
+        </div>
+         <div class="card">
+            <div class="card-img-container">
+                <img src="img/actividad2.jpeg" alt="Horarios" onclick="abrirModal('img/actividad2.jpeg')">
+            </div>
+            <h3>Entrega de las chaquetas de pre promo 2024</h3>
+            <p>Se procedio a hacer las entregas a cada uno de los alumnos de las chaquetas que identifican a la promo XXV </p>
+        </div>
+         <div class="card">
+            <div class="card-img-container">
+                <img src="img/actividad3.jpeg" alt="Horarios" onclick="abrirModal('img/actividad3.jpeg')">
+            </div>
+            <h3>Convivencia por "Compadres"<h3></h3>
+            <p>Actividad conformada por los alumnos del curso 6to B, Asesores de curso celebrando la festividad de compadres 2025</p>
+        </div>
+         <div class="card">
+            <div class="card-img-container">
+                <img src="img/actividad4.jpeg" alt="Horarios" onclick="abrirModal('img/actividad4.jpeg')">
+            </div>
+            <h3>FESTIVAL DEPORTIVO 2025<h3></h3>
+            <p>Actividad conformada por los alumnos del curso 6to B, en representacion por el curso en el campeonato de futsal y basket</p>
+        </div>
+    </section>
+<section id="servicios" class="seccion">
+    <h2>Servicios Estudiantiles</h2>
+    <div class="cards-container">
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/horario.jpeg" alt="Horarios" onclick="abrirModal('img/horario.jpeg')">
+            </div>
+            <h3>HORARIOS</h3>
+            <p>Consulta el horario de clases de 6to B</p>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/logo.png" alt="Biblioteca" onclick="abrirModal('img/logo.png')">
+            </div>
+            <h3>Biblioteca</h3>
+            <p>Accede a todos los recursos disponibles para estudiantes.</p>
+        </div>
+        <div class="card">
+            <div class="card-img-container">
+                <img src="img/libro.jpeg" alt="Actividades" onclick="abrirModal('img/libro.jpeg')">
+            </div>
+            <h3>Actividades</h3>
+            <p>Ponte al dia de algunas actividades que tuvimos en 6to B</p>
+        </div>
+    </div>
+</section>
+<div id="modalImagen" class="modal">
+    <span class="cerrar" onclick="cerrarModal()">&times;</span>
+    <img class="modal-contenido" id="imgModal">
+</div>
+    <section id="contacto" class="seccion">
+        <h2>Contacto</h2>
+        <p>Puedes escribirnos al correo: fq66731@gmail.com</p>
+        <p>Teléfono: +59164391385</p>
+        <a href="https://wa.me/59164391385" target="_blank">
+    Enviar mensaje por WhatsApp
+</a>
+        <p>TODA LA PAGINA FUE REALIZADA POR ANGEL Q </p>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Unidad Educativa Don Bosco C / CONTACTO EPDM</p>
+    <p>&copy; REALIZADO POR ANGEL Q. :)</p>
+</footer>
+
+<script>
+function mostrarSeccion(id, enlace, event) {
+    if(event) event.preventDefault();
+
+    document.querySelectorAll('.seccion').forEach(sec => sec.classList.remove('activa'));
+    document.getElementById(id).classList.add('activa');
+
+    document.querySelectorAll('.nav-tabs a').forEach(a => a.classList.remove('activo'));
+    if(enlace) enlace.classList.add('activo');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    mostrarSeccion('inicio', document.querySelector('.nav-tabs a'));
+});
+function abrirModal(src) {
+    const modal = document.getElementById("modalImagen");
+    const modalImg = document.getElementById("imgModal");
+    modal.style.display = "block";
+    modalImg.src = src;
+}
+
+function cerrarModal() {
+    document.getElementById("modalImagen").style.display = "none";
+}
+</script>
+</body>
